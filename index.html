@@ -11,7 +11,7 @@
     
     <style> <!-- Estilos personalizados -->
         body { padding-top: 56px; } /* Espacio para la navbar fija */
-        .carousel-item img { height: 400px; object-fit: cover; } /* Imágenes del carrusel con altura fija */
+        .carousel-item img { height: 400px; object-fit: cover; } /* Imágenes del carrusel con altura fija y recorte proporcional */
         section { padding: 60px 0; } /* Espaciado vertical de secciones */
     </style>
 </head>
@@ -42,22 +42,25 @@
 
     <main> <!-- ========== CONTENIDO PRINCIPAL ========== -->
 
-        <!-- ========== 2. CARRUSEL DE IMÁGENES ========== -->
+        <!-- ========== 2. CARRUSEL DE IMÁGENES (4 DIAPOSITIVAS) ========== -->
         <section id="inicio" class="p-0"> <!-- p-0: sin padding para que el carrusel ocupe todo el ancho -->
             <div id="carouselProyectos" class="carousel slide" data-bs-ride="carousel"> <!-- carousel slide: componente carrusel; data-bs-ride: auto-inicio -->
                 
-                <div class="carousel-indicators"> <!-- Indicadores (puntitos) del carrusel -->
-                    <button type="button" data-bs-target="#carouselProyectos" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button> <!-- data-bs-slide-to="0": va a diapositiva 1; active: activo por defecto -->
-                    <button type="button" data-bs-target="#carouselProyectos" data-bs-slide-to="1" aria-label="Slide 2"></button> <!-- Diapositiva 2 -->
-                    <button type="button" data-bs-target="#carouselProyectos" data-bs-slide-to="2" aria-label="Slide 3"></button> <!-- Diapositiva 3 -->
+                <!-- Indicadores (ahora son 4 para coincidir con las diapositivas) -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselProyectos" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button> <!-- Indicador 1 activo por defecto -->
+                    <button type="button" data-bs-target="#carouselProyectos" data-bs-slide-to="1" aria-label="Slide 2"></button> <!-- Indicador 2 -->
+                    <button type="button" data-bs-target="#carouselProyectos" data-bs-slide-to="2" aria-label="Slide 3"></button> <!-- Indicador 3 (Tu invento) -->
+                    <button type="button" data-bs-target="#carouselProyectos" data-bs-slide-to="3" aria-label="Slide 4"></button> <!-- Indicador 4 (Dashboard) -->
                 </div>
                 
-                <div class="carousel-inner"> <!-- Contenedor de diapositivas -->
+                <!-- Contenedor de las diapositivas -->
+                <div class="carousel-inner">
                     
                     <!-- Diapositiva 1 -->
-                    <div class="carousel-item active"> <!-- active: se muestra al cargar -->
-                        <img src="https://picsum.photos/1200/400?random=1" class="d-block w-100" alt="Proyecto de Portal Ciudadano"> <!-- d-block: display block; w-100: ancho 100%; alt: texto alternativo -->
-                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded"> <!-- d-none d-md-block: oculto en móvil, visible en ≥768px; bg-opacity-50: fondo semitransparente -->
+                    <div class="carousel-item active"> <!-- active: se muestra al cargar la página -->
+                        <img src="https://picsum.photos/1200/400?random=1" class="d-block w-100" alt="Proyecto de Portal Ciudadano"> <!-- d-block: display block; w-100: ancho 100% -->
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded"> <!-- d-none d-md-block: oculto en móvil, visible en ≥768px -->
                             <h5>Portal de Servicios Ciudadanos</h5>
                             <p>Diseño responsivo con CSS Grid y Flexbox.</p>
                         </div>
@@ -72,7 +75,17 @@
                         </div>
                     </div>
                     
-                    <!-- Diapositiva 3 -->
+                    <!-- Diapositiva 3: TU INVENTO -->
+                    <div class="carousel-item">
+                        <!-- URL raw de GitHub para que la imagen cargue directamente como archivo de imagen -->
+                        <img src="https://raw.githubusercontent.com/carvajalpintoreduardo-dev/portafolio-cv-bootstrap/main/mi-invento.png" class="d-block w-100" alt="Mi invento personal - Proyecto destacado"> 
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
+                            <h5>Mi Invento Personal</h5>
+                            <p>Descripción de lo que hace mi invento y por qué es una solución innovadora.</p>
+                        </div>
+                    </div>
+
+                    <!-- Diapositiva 4 (Originalmente la 3, movida al final) -->
                     <div class="carousel-item">
                         <img src="https://picsum.photos/1200/400?random=3" class="d-block w-100" alt="Proyecto de Dashboard">
                         <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
@@ -82,13 +95,15 @@
                     </div>
                 </div>
                 
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselProyectos" data-bs-slide="prev"> <!-- Botón "Anterior" -->
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span> <!-- Ícono de flecha -->
+                <!-- Botón "Anterior" -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselProyectos" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span> <!-- Ícono de flecha izquierda -->
                     <span class="visually-hidden">Anterior</span> <!-- Texto oculto para lectores de pantalla -->
                 </button>
                 
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselProyectos" data-bs-slide="next"> <!-- Botón "Siguiente" -->
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <!-- Botón "Siguiente" -->
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselProyectos" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span> <!-- Ícono de flecha derecha -->
                     <span class="visually-hidden">Siguiente</span>
                 </button>
             </div>
